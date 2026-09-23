@@ -107,8 +107,6 @@ These are from the Stripe review and are **not** blockers, but decide consciousl
   launch deposit holds, either add the capture flow or switch deposits to
   immediate capture. (Pay-in-full and subscriptions are unaffected.)
 - **VAT / Stripe Tax** not applied — decide if prices are tax-inclusive.
-- **À la carte payments** aren't persisted to the `payments` table (only
-  memberships get a DB row).
 - Two Stripe client modules exist (`src/lib/stripe.ts` vs `src/lib/stripe/server.ts`);
   only the former is used. Harmless, worth consolidating.
 

@@ -6,6 +6,7 @@ import { poundsLabel, TIER_LABEL, type Tier } from "@/lib/memberships";
 import { appUrl } from "@/lib/env";
 import { sendBookingEmails, sendMembershipEmails } from "@/lib/email";
 import { recordMembershipPurchase } from "@/lib/memberships/store";
+import { recordBookingPayment } from "@/lib/bookings/store";
 import {
   onInvoicePaid,
   onInvoicePaymentFailed,
@@ -83,6 +84,10 @@ async function onCheckoutCompleted(session: Stripe.Checkout.Session) {
     }
     return;
   }
+
+  // Persist first so the ledger has the record even if email is skipped.
+  try { await recordBookingPayment(session); }
+  catch (cause) { console.error("booking_payment_persist_error", cause); }
 
   if (m.email_updates !== "false" && m.email && m.booking_reference) {
     const paidInFull = m.payment_type === "full";
