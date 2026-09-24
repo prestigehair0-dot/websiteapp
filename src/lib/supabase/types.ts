@@ -835,8 +835,9 @@ export type Database = {
         Row: {
           id: string;
           booking_id: string | null;
-          profile_id: string;
+          profile_id: string | null;
           salon_id: string;
+          email: string | null;
           kind: Database["public"]["Enums"]["payment_kind"];
           status: Database["public"]["Enums"]["payment_status"];
           amount_pence: number;
@@ -859,8 +860,9 @@ export type Database = {
         Insert: {
           id?: string;
           booking_id?: string | null;
-          profile_id: string;
+          profile_id?: string | null;
           salon_id: string;
+          email?: string | null;
           kind: Database["public"]["Enums"]["payment_kind"];
           status?: Database["public"]["Enums"]["payment_status"];
           amount_pence: number;
@@ -883,8 +885,9 @@ export type Database = {
         Update: {
           id?: string;
           booking_id?: string | null;
-          profile_id?: string;
+          profile_id?: string | null;
           salon_id?: string;
+          email?: string | null;
           kind?: Database["public"]["Enums"]["payment_kind"];
           status?: Database["public"]["Enums"]["payment_status"];
           amount_pence?: number;
