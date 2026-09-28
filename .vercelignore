@@ -1,0 +1,6 @@
+# mobile/chakraos is a separate, unrelated Expo/React Native app that lives
+# in this repo (see mobile/chakraos/README.md). Its own package.json and
+# lockfile made Vercel auto-detect this repo as a monorepo and fail the
+# deployment for the actual Next.js site — exclude it from the deployment
+# entirely so Vercel only ever sees the single Next.js project at the root.
+mobile/
