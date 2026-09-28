@@ -14,6 +14,9 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Read-only design handoff bundle from Claude Design — not app source.
     "project/**",
+    // Separate Expo/React Native app with its own eslint config — see
+    // mobile/chakraos/README.md.
+    "mobile/**",
   ]),
 ]);
 
